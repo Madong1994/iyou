@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/js/materialize/css/materialize.min.css}" href="../static/js/materialize/css/materialize.min.css" rel="stylesheet"/>
+    <link th:href="@{/css/msmart.css}" href="../static/css/msmart.css" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css" rel="stylesheet"/>
+    <link th:href="@{/css/mdb.css}" href="../static/css/mdb.css" rel="stylesheet"/>
+    <link th:href="@{/css/smart.css}" href="../static/css/smart.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="app" class="ms-layout-center-horizontal">
+
+    <div class="debug sm-width-90-per ms-height-95-per sm-layout-side-horizontal">
+        <form class="text-center sm-width-50-per ms-height-100-per" style="color: #757575;">
+            <!--<div class="ms-width-30-per sm-height-100-per border-right-grey-lighten-2">-->
+
+            <div class="form-row">
+                <div class="col">
+                    <!-- First name -->
+                    <div class="md-form">
+                        <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                        <label for="materialRegisterFormFirstName">主题</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Last name -->
+                    <div class="md-form">
+                        <input type="email" id="materialRegisterFormLastName" class="form-control">
+                        <label for="materialRegisterFormLastName">要求</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <!-- First name -->
+                    <div class="md-form">
+                        <input type="text" id="materialRegisterFormFirstName" value="排队中..." class="form-control">
+                        <label for="materialRegisterFormFirstName">状态</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <!--<span>Subject</span>-->
+                    <select class="mdb-select">
+                        <option value="" disabled>选择分类</option>
+                        <option value="1" selected>热门</option>
+                        <option value="2">精选</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <!--Message-->
+            <div class="form-row">
+                <div class="col">
+                    <!-- First name -->
+                    <div class="md-form">
+                        <textarea type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="3"></textarea>
+                        <label for="materialContactFormMessage">简述</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- First name -->
+                    <div class="md-form">
+                        <textarea type="text" id="materialContactFormMessage" class="form-control md-textarea" rows="3"></textarea>
+                        <label for="materialContactFormMessage">规则描述</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col">
+                    <div class="file-field">
+                        <div class="btn btn-primary btn-sm float-left">
+                            <span>Choose file</span>
+                            <input type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload your file">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- First name -->
+                    <img id="img" src="" style="width: 360px;height:220px;">
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                    <button class="btn purple-gradient btn-sm">SEND</button>
+            </div>
+        </form>
+
+        <div class="debug sm-layout-top-center-with-nowrap-vertical sm-height-100-per sm-width-30-per sm-left-border-1px-black">
+            <!-- Card -->
+            <div class="card">
+
+                <!-- Card image -->
+                <div class="view view-cascade overlay">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body card-body-cascade text-center">
+
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>My adventure</strong></h4>
+                    <!-- Subtitle -->
+                    <h6 class="font-weight-bold indigo-text py-2">Photography</h6>
+                    <!-- Text -->
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat laborum ut beatae ullam suscipit veniam.
+                    </p>
+
+                    <!-- Linkedin -->
+                    <!-- Twitter -->
+                    <a class="btn-flat blue-text">添加赞助</a>
+                    <!-- Dribbble -->
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <!-- Card image -->
+                <div class="view view-cascade overlay">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body card-body-cascade text-center">
+
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>My adventure</strong></h4>
+                    <!-- Subtitle -->
+                    <h6 class="font-weight-bold indigo-text py-2">Photography</h6>
+                    <!-- Text -->
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat laborum ut beatae ullam suscipit veniam.
+                    </p>
+
+                    <a class="btn-flat blue-text">添加赞助</a>
+
+                </div>
+
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="../static/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script src="../static/js/materialize/js/materialize.min.js" th:src="@{/js/materialize/js/materialize.min.js}"></script>
+<script src="../static/js/vue/vue.js" th:src="@{/js/vue/vue.js}"></script>
+<script th:src="@{/js/vue/vue-resource.min.js}" src="../static/js/vue/vue-resource.min.js"></script>
+<script src="https://unpkg.com/qiniu-js@2.5.3/dist/qiniu.min.js"></script>
+<script th:src="@{/js/init.js}" src="../static/js/init.js"></script>
+<script th:src="@{/js/iyou/add.js}" src="../static/js/iyou/add.js"></script>
+<script>
+    $().ready(function(){
+        initSize($("#app"));
+        initVue();
+        $('select').material_select();
+    })
+</script>
+</html>

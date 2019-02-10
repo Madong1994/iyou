@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/js/materialize/css/materialize.min.css}" href="../static/js/materialize/css/materialize.min.css" rel="stylesheet"/>
+    <link th:href="@{/css/msmart.css}" href="../static/css/msmart.css" rel="stylesheet"/>
+    <link th:href="@{/css/smart.css}" href="../static/css/smart.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Logo</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="#" onclick="openOrCloseSideNav()"><i class="material-icons">menu</i></a></li>
+            <li><a href="badges.html">组件</a></li>
+            <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+    </div>
+</nav>
+<iframe id="appIframe" src="addactivity.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes">
+
+</iframe>
+
+<ul id="slide-out" class="side-nav">
+    <li><div class="userView">
+        <div class="background">
+            <img src="images/office.jpg">
+        </div>
+        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+        <a href="#!name"><span class="white-text name">张三</span></a>
+        <a href="#!email"><span class="white-text email">jdandturk@sina.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>带图标的第一链接</a></li>
+    <li><a href="#!">第二链接</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">子标题</a></li>
+    <li><a class="waves-effect" href="#!">带波纹效果的第三链接</a></li>
+</ul>
+<a href="#" data-activates="slide-out" hidden class="button-collapse"><i class="material-icons">menu</i></a>
+
+
+</body>
+<script src="../static/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script src="../static/js/materialize/js/materialize.min.js" th:src="@{/js/materialize/js/materialize.min.js}"></script>
+<script src="../static/js/vue/vue.js" th:src="@{/js/vue/vue.js}"></script>
+<script th:src="@{/js/vue/vue-resource.min.js}" src="../static/js/vue/vue-resource.min.js"></script>
+<script src="https://unpkg.com/qiniu-js@2.5.3/dist/qiniu.min.js"></script>
+<script th:src="@{/js/init.js}" src="../static/js/init.js"></script>
+<script>
+    $().ready(function () {
+        initSize($("#appIframe"), true);
+        $(".button-collapse").sideNav();
+    })
+    function openOrCloseSideNav() {
+        $('.button-collapse').sideNav('show');
+    }
+</script>
+</html>

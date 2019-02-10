@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/js/materialize/css/materialize.min.css}" href="../static/js/materialize/css/materialize.min.css" rel="stylesheet"/>
+    <link th:href="@{/css/msmart.css}" href="../static/css/msmart.css" rel="stylesheet"/>
+    <link th:href="@{/css/smart.css}" href="../static/css/smart.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="app" class="ms-layout-center-horizontal">
+
+    <div class="sm-width-90-per ms-height-95-per ms-layout-center-horizontal">
+        <form class="sm-width-100-per ms-height-100-per ms-layout-center-horizontal">
+        <div class="ms-width-30-per sm-height-100-per border-right-grey-lighten-2">
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">主题</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">要求</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled selected>选择状态</option>
+                            <option value="1">等待中</option>
+                            <option value="2">排队中</option>
+                        </select>
+                        <label>状态</label>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>选择分类</option>
+                        <option value="1">热门</option>
+                        <option value="2">精选</option>
+                    </select>
+                    <label>状态</label>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">简述</label>
+                    </div>
+                </div>
+
+            <!-- Form -->
+        </div>
+        <div class="ms-width-40-per sm-height-100-per ">
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">规则描述</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>图片</span>
+                        <input id="fileImg" onchange="changeFile()" type="file" multiple>
+                    </div>
+                    <!--<div class="file-path-wrapper">-->
+                        <!--<input class="file-path validate" type="text" placeholder="上传一图片">-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="row ">
+                <img id="img" src="" style="width: 360px;height:220px;">
+            </div>
+
+            <div class="row ">
+                <img id="img1" src="http://plseoieh0.bkt.clouddn.com/d1.jpg" style="width: 360px;height:220px;">
+            </div>
+        </div>
+            <div class="sm-layout-top-center-with-wrap-vertical sm-height-100-per sm-width-30-per sm-left-border-1px-black">
+                <a class="btn-floating btn-large waves-effect waves-light red" v-on:click="uploadImg"><i class="material-icons">add</i></a>
+
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+<script src="../static/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script src="../static/js/materialize/js/materialize.min.js" th:src="@{/js/materialize/js/materialize.min.js}"></script>
+<script src="../static/js/vue/vue.js" th:src="@{/js/vue/vue.js}"></script>
+<script th:src="@{/js/vue/vue-resource.min.js}" src="../static/js/vue/vue-resource.min.js"></script>
+<script src="https://unpkg.com/qiniu-js@2.5.3/dist/qiniu.min.js"></script>
+<script th:src="@{/js/init.js}" src="../static/js/init.js"></script>
+<script th:src="@{/js/iyou/add.js}" src="../static/js/iyou/add.js"></script>
+<script>
+    $().ready(function(){
+        initSize($("#app"));
+        initVue();
+        $('select').material_select();
+    })
+</script>
+</html>
