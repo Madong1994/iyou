@@ -6,14 +6,15 @@
     <link th:href="@{/css/msmart.css}" href="../static/css/msmart.css" rel="stylesheet"/>
     <link th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css" rel="stylesheet"/>
     <link th:href="@{/css/mdb.css}" href="../static/css/mdb.css" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" href="../static/css/style.css" rel="stylesheet"/>
     <link th:href="@{/css/smart.css}" href="../static/css/smart.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- Material form login -->
-<div class="card">
+<div class="card ms-width-30-per">
 
     <h5 class="card-header info-color white-text text-center py-4">
-        <strong>Sign in</strong>
+        <strong>新增</strong>
     </h5>
 
     <!--Card content-->
@@ -22,32 +23,46 @@
         <!-- Form -->
         <form class="text-center" style="color: #757575;">
 
-            <!-- Email -->
+            <!-- titile -->
             <div class="md-form">
                 <input type="email" id="materialLoginFormEmail" class="form-control">
-                <label for="materialLoginFormEmail">E-mail</label>
+                <label for="materialLoginFormEmail">首页-标题</label>
             </div>
 
-            <!-- Password -->
+            <!-- 要求 -->
             <div class="md-form">
                 <input type="password" id="materialLoginFormPassword" class="form-control">
-                <label for="materialLoginFormPassword">Password</label>
+                <label for="materialLoginFormPassword">首页-要求</label>
             </div>
 
             <div class="d-flex justify-content-around">
                 <div>
-                    <!-- Remember me -->
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
-                        <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
+                        <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
+                        <label class="form-check-label" for="materialUnchecked">状态</label>
                     </div>
                 </div>
                 <div>
-                    <!-- Forgot password -->
-                    <a href="">Forgot password?</a>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
+                        <label class="form-check-label" for="materialUnchecked">类型</label>
+                    </div>
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="exampleFormControlTextarea2">简介</label>
+                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea2">规则描述</label>
+                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
+            </div>
+
+            <div class="file-upload-wrapper">
+                <input type="file" id="input-file-now-custom-1" class="file-upload" data-default-file="https://mdbootstrap.com/img/Photos/Others/images/89.jpg" />
+            </div>
             <!-- Sign in button -->
             <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
 
