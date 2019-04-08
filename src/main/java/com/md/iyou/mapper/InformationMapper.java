@@ -2,8 +2,10 @@ package com.md.iyou.mapper;
 
 import com.md.iyou.entity.ConciseInfo;
 import com.md.iyou.entity.Information;
+import com.md.iyou.entity.RunStep;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -19,7 +21,6 @@ import java.util.List;
  */
 @Mapper
 public interface InformationMapper {
-
     /**
      * 插入发布的数据
      * @param information 发布的数据对象

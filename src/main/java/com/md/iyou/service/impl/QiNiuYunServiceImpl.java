@@ -4,6 +4,7 @@ import com.md.iyou.common.ConQiNiu;
 import com.md.iyou.service.QiNiuYunService;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Service;
 /**
  * Created by 马东 on 2018/11/5.
@@ -18,10 +19,11 @@ import org.springframework.stereotype.Service;
 public class QiNiuYunServiceImpl implements QiNiuYunService {
     @Override
     public String creatUploadToken(String imgName) {
+        imgName = imgName + System.currentTimeMillis() + ".jpg";
         String accessKey = "zihQw7zlwkzQQ_bnbyYpDhqDAtTi2xZzgKcC14n2";
         String secretKey = "6fjy2UiOWzuQEYS489AgWQtlZ4Bt7PSiRxgwFpRX";
-        String bucket = "hot1";
-        Auth auth = Auth.create(accessKey, secretKey);
+        String bucket = "kpp_1";
+        Auth auth = Auth.create(accessKey , secretKey);
 //        StringMap putPolicy = new StringMap();
 //        putPolicy.put("callbackUrl", "http://api.example.com/qiniu/upload/callback");
 //        putPolicy.put("callbackBody", "{\"key\":\"$(key)\",\"hash\":\"$(etag)\",\"bucket\":\"$(bucket)\",\"fsize\":$(fsize)}");
@@ -37,9 +39,9 @@ public class QiNiuYunServiceImpl implements QiNiuYunService {
     public String downLoadUrl() {
         String accessKey = "zihQw7zlwkzQQ_bnbyYpDhqDAtTi2xZzgKcC14n2";
         String secretKey = "6fjy2UiOWzuQEYS489AgWQtlZ4Bt7PSiRxgwFpRX";
-        String bucket = "hot1";
+        String bucket = "kpp_1";
         Auth auth = Auth.create(accessKey, secretKey);
-        auth.privateDownloadUrl("http://plseoieh0.bkt.clouddn.com/demo.jpg", 36000);
+        auth.privateDownloadUrl("http://pnzcoor3o.bkt.clouddn.com/demo.jpg", 36000);
         return null;
     }
 

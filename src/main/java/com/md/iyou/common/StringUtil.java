@@ -1,6 +1,7 @@
 package com.md.iyou.common;
 
-import com.xiaoleilu.hutool.util.StrUtil;
+
+import cn.hutool.core.util.StrUtil;
 
 /**
  * Created by 马东 on 2018/10/16.

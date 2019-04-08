@@ -31,7 +31,7 @@ function uploadImg(token) {
         complete(res){
             // ...
             console.log(res)
-            $("#img1").attr("src", "http://plseoieh0.bkt.clouddn.com/demo.jpg?e=1648252730820&token=" + token)
+            $("#img1").attr("src", "http://pnzcoor3o.bkt.clouddn.com/demo.jpg?e=1648252730820&token=" + token)
         }
     }
     var observable = qiniu.upload(bob, "d1.jpg", token, putExtra, config)
