@@ -1,6 +1,7 @@
 package com.md.iyou.service.run;
 
 import cn.hutool.json.JSONObject;
+import com.md.iyou.entity.Bonus;
 import com.md.iyou.entity.RunRank;
 import com.md.iyou.entity.RunUser;
 
@@ -19,6 +20,8 @@ public interface UserService {
     void register(JSONObject jsonObject, String nickName, String avatarurl);
 
     RunUser queryRunUser(String loginSession);
+
+    boolean hasBonus(String loginSession);
 
     List<RunRank> queryListByOpenid(String loginSession);
 }

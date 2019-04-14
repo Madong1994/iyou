@@ -12,6 +12,7 @@ import com.md.iyou.entity.RunRank;
 import com.md.iyou.entity.RunStep;
 import com.md.iyou.entity.RunType;
 import com.md.iyou.entity.RunUser;
+import com.md.iyou.service.run.KefuService;
 import com.md.iyou.service.run.RunService;
 import com.md.iyou.service.run.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,8 @@ public class RunController {
     private RunService runService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private KefuService kefuService;
     @RequestMapping("/run/add")
     public String add(String type, String dor, String loginSession) {
         String res = runService.addPk(type, dor, loginSession);
@@ -109,15 +112,16 @@ public class RunController {
         return map;
     }
     @RequestMapping("/run/user")
-    public Map<String, String> userData(String loginSession) {
-        RunUser runUser = userService.queryRunUser(loginSession);
-        Map<String, String> map = new HashMap<>();
-        if (null == runUser) {
-            map.put("res", "NOTEXIT");
-        } else {
-            map.put("res", "SECUSS");
-            map.put("money", runUser.getMoney());
-        }
+    public Map<String, Boolean> userData(String loginSession) {
+        boolean bool = userService.hasBonus(loginSession);
+        Map<String, Boolean> map = new HashMap<>();
+//        if (null == runUser) {
+//            map.put("res", "NOTEXIT");
+//        } else {
+//            map.put("res", "SECUSS");
+//            map.put("money", runUser.getMoney());
+//        }
+        map.put("tag", bool);
         return map;
     }
     @RequestMapping("/run/record")
@@ -131,5 +135,12 @@ public class RunController {
         }
         Map<String, Object> mmap = runService.rank(page, loginSession);
         return mmap;
+    }
+    @RequestMapping("/run/kefu")
+    public Map<String, Object> kefu(String nickName, String avatarUrl, String loginSession) {
+        Map<String, Object> map = new HashMap<>();
+        boolean bool = kefuService.updateUserData(nickName, avatarUrl, loginSession);
+        map.put("res", bool);
+        return map;
     }
 }

@@ -1,10 +1,8 @@
 package com.md.iyou.service.run.impl;
 
 import com.md.iyou.common.SmartDateUtil;
-import com.md.iyou.entity.RunActivity;
-import com.md.iyou.entity.RunDuan;
-import com.md.iyou.entity.RunRank;
-import com.md.iyou.entity.RunStep;
+import com.md.iyou.entity.*;
+import com.md.iyou.mapper.BonusMapper;
 import com.md.iyou.mapper.RunDuanMapeer;
 import com.md.iyou.mapper.RunMapper;
 import com.md.iyou.mapper.UserMapper;
@@ -37,6 +35,8 @@ public class ScheduledServiceImpl implements ScheduledService{
     private RunMapper runMapper;
     @Autowired
     private RunDuanMapeer runDuanMapeer;
+    @Autowired
+    private BonusMapper bonusMapper;
     /**
      * 1、更新活动表中总人数，总金额
      * 2、更新每个用户的排名，段位
@@ -99,8 +99,23 @@ public class ScheduledServiceImpl implements ScheduledService{
                 //更新
                 runDuanMapeer.updateRank(runRank);
             }
-            if (SmartDateUtil.betweenTime(SmartDateUtil.todayDate() + " 23:33:23")) {
+            String itime = SmartDateUtil.todayDate() + " 23:33:23";
+//            String itime = SmartDateUtil.todayDate() + " 16:07:23";
+            if (SmartDateUtil.betweenTime(itime)) {
                 //当天最后一次扫描数据
+                String startTime = itime;
+                String endTime = SmartDateUtil.tomorrowDate() + " 20:00:00";
+                Bonus bonus = new Bonus();
+                bonus.setEndtime(endTime);
+                bonus.setStarttime(startTime);
+                bonus.setOpenid(runStep.getOpenid());
+                bonus.setMoney(moeny);
+                bonus.setToday(SmartDateUtil.todayDate());
+                RunUser runUser = userMapper.queryRunUserByOpenId(runStep.getOpenid());
+                bonus.setAvatarurl(runUser.getAvatarurl());
+                bonus.setNickname(runUser.getNickname());
+                bonus.setUnionid(runUser.getUnionid());
+                bonusMapper.insertBonus(bonus);
                 userMapper.updateUserMoneyByOpenid(moeny, runStep.getOpenid());
             }
         }

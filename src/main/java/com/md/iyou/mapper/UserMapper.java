@@ -20,6 +20,9 @@ public interface UserMapper {
     @Select("select id, money from run_user where openid = #{openid}")
     RunUser queryRunUser(@Param("openid") String openid);
 
+    @Select("select unionid, nickname, avatarurl from run_user where openid = #{openid}")
+    RunUser queryRunUserByOpenId(@Param("openid") String openid);
+
     @Insert("insert into run_user (openid, unionid, money,nickname,avatarurl) values (#{runUser.openid}, #{runUser.unionid}, #{runUser.money}, #{runUser.nickname}, #{runUser.avatarurl})")
     int insertUser(@Param("runUser") RunUser runUser);
 
@@ -31,4 +34,7 @@ public interface UserMapper {
 
     @Update("update run_user set money = #{moeny} where openid = #{openid}")
     int updateUserMoneyByOpenid(@Param("moeny") String money, @Param("openid") String openid);
+
+    @Update("UPDATE run_user SET nickname =#{nickName}, avatarurl = #{avatarUrl} where openid = #{openid}")
+    int updateUser(@Param("nickName") String nickName, @Param("avatarUrl") String avatarUrl, @Param("openid") String openid);
 }

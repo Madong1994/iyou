@@ -2,8 +2,11 @@ package com.md.iyou.service.run.impl;
 
 import cn.hutool.json.JSONObject;
 import com.md.iyou.common.CurrenthashMapUtil;
+import com.md.iyou.common.SmartDateUtil;
+import com.md.iyou.entity.Bonus;
 import com.md.iyou.entity.RunRank;
 import com.md.iyou.entity.RunUser;
+import com.md.iyou.mapper.BonusMapper;
 import com.md.iyou.mapper.RunDuanMapeer;
 import com.md.iyou.mapper.UserMapper;
 import com.md.iyou.service.run.UserService;
@@ -25,7 +28,9 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    protected UserMapper userMapper;
+    private BonusMapper bonusMapper;
+    @Autowired
+    private UserMapper userMapper;
     @Autowired
     private RunDuanMapeer runDuanMapeer;
     @Override
@@ -51,6 +56,23 @@ public class UserServiceImpl implements UserService {
         String openid = (String) jsonObject.get("openid");
         RunUser runUser = userMapper.queryRunUser(openid);
         return runUser;
+    }
+
+    @Override
+    public boolean hasBonus(String loginSession) {
+        JSONObject jsonObject = CurrenthashMapUtil.get(loginSession);
+        String openid = (String) jsonObject.get("openid");
+
+        Bonus bonus = bonusMapper.selectByOpenidAndUpd(openid);
+        if (null == bonus) {
+            return false;
+        }
+        boolean startBool = SmartDateUtil.betweenTime(bonus.getStarttime());
+        boolean endBool = SmartDateUtil.betweenTime(bonus.getEndtime());
+        if (startBool && !endBool && bonus.getUpd() == 0) {
+            return true;
+        }
+        return false;
     }
 
     /**
